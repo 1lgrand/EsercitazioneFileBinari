@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/aless/OneDrive/Desktop/EsercitazioneFileBinari/CreateBinary",
-      "program": "c:/Users/aless/OneDrive/Desktop/EsercitazioneFileBinari/CreateBinary/build/Debug/outDebug",
+      "cwd": "c:/Users/aless/OneDrive/Desktop/EsercitazioneFileBinari",
+      "program": "c:/Users/aless/OneDrive/Desktop/EsercitazioneFileBinari/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
