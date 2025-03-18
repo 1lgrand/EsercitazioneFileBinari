@@ -52,4 +52,5 @@ Mkfile.old
 dkms.conf
 
 #File di input
-input.dat
+*.dat
+*.txt

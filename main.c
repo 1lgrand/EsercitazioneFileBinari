@@ -28,18 +28,36 @@ int main(){
 
     FILE *fpOutput = fopen(OUTPUTFILE,"w");
 
-    sMediaAlta = getMaxMedia(&maxMedia);
-    printf("\n");
-    sEsamiSostenuti = getNumEsamiSostenuti(&esamiSostenuti);
+    if (checkInputFile() == 0)
+    {
+        sMediaAlta = getMaxMedia(&maxMedia);
+        printf("\n");
+        sEsamiSostenuti = getNumEsamiSostenuti(&esamiSostenuti);
 
-    printf("\nLo studente con la media piu alta e': %s con %.2f",sMediaAlta.cognome,maxMedia);
-    printf("\n");
-    fflush(stdout);
-    printf("\nLo studente con piu esami e': %s con %d", sEsamiSostenuti.cognome ,esamiSostenuti);
-
+        printf("\nLo studente con la media piu alta e': %s con %.2f",sMediaAlta.cognome,maxMedia);
+        printf("\n");
+        fflush(stdin);
+        printf("\nLo studente con piu esami e': %s con %d", sEsamiSostenuti.cognome ,esamiSostenuti);
+    }else{
+        printf("\nFile di input assente! ");
+    }
+    
 
     printf("\n\n");
     return 0;
+}
+
+int checkInputFile(){
+    FILE *fp = fopen(FILENAME,"rb");
+    int exist = 1;
+
+    if (fp != NULL){
+        exist = 0;
+    }
+
+    return exist;
+        
+    
 }
 
 Studente getMaxMedia(float *maxMedia){
