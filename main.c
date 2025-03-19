@@ -15,6 +15,7 @@ typedef struct{
 Studente getMaxMedia(float *maxMedia);
 Studente getNumEsamiSostenuti();
 Studente getVotoPiuAlto();
+Studente getStudenteRicercato();
 
 int main(){
 
@@ -25,6 +26,7 @@ int main(){
     Studente sMediaAlta;
     Studente sEsamiSostenuti;
     Studente sVotoPiuAlto;
+    Studente sRicerca;
 
     FILE *fpOutput = fopen(OUTPUTFILE,"w");
 
@@ -33,6 +35,8 @@ int main(){
         sMediaAlta = getMaxMedia(&maxMedia);
         printf("\n");
         sEsamiSostenuti = getNumEsamiSostenuti(&esamiSostenuti);
+        printf("\n");
+        sRicerca = getStudenteRicercato();
 
         printf("\nLo studente con la media piu alta e': %s con %.2f",sMediaAlta.cognome,maxMedia);
         printf("\n");
@@ -120,5 +124,29 @@ Studente getNumEsamiSostenuti(int *esamiSostenuti){
 
     fclose(fp);
     return sEsamiSostenuti;
+}
+
+
+
+Studente getStudenteRicercato(){
+    int i = 0;
+    Studente s;
+    Studente r;
+    FILE *fp = fopen(FILENAME,"rb");
+
+    printf("\n Inserisci il cognome del studente da cercare: ");
+    scanf("%s",r.cognome);
+
+    while (fread(&s,sizeof(Studente),1,fp) == 1)
+    { 
+        if(r.cognome == s.cognome){
+            printf("\n Nome: %s Cognome: %s",s.nome,s.cognome);
+            return s;
+        }
+    }
+    
+
+    fclose(fp);
+    return r;
 }
 
